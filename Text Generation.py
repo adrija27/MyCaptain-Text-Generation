@@ -115,14 +115,14 @@ checkpoint= ModelCheckpoint( filepath, monitor='loss', verbose = 1 , save_best_o
 desired_callbacks=[checkpoint]
 
 
-# In[ ]:
+# In[33]:
 
 
 #fit the model and train
 model.fit(X,y,epochs=4,batch_size=256,callbacks=desired_callbacks)
 
 
-# In[ ]:
+# In[34]:
 
 
 filename="model_weights_saved.hdf5"
@@ -130,13 +130,13 @@ model.load_weights(filename)
 model.compile(loss='categorical_crossentropy',optimizer='adam')
 
 
-# In[ ]:
+# In[36]:
 
 
 num_to_char=dict((i,c) for i,c in enumerate(chars))
 
 
-# In[ ]:
+# In[37]:
 
 
 start=numpy.random.randint(0,len(x_data)-1)
@@ -145,7 +145,7 @@ print("Random Seed: ")
 print("\"",''.join([num_to_char[value] for value in pattern]),"\"")
 
 
-# In[ ]:
+# In[38]:
 
 
 for i in range(1000):
@@ -158,10 +158,3 @@ for i in range(1000):
     sys.stdout.write(result)
     pattern.append(index)
     pattern=pattern[1:len(pattern)]
-
-
-# In[ ]:
-
-
-
-
